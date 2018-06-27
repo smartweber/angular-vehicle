@@ -1,0 +1,152 @@
+<div class="scrollable">
+  <div class="scrollable-content home">
+    <div class="list-group text-center">
+      <div class="list-group-item-home identify-area" *ngIf="bIsPageLoading">
+        <div class="modal-wrapper" *ngIf="bIsVinModal">
+          <div class="modal-header">
+            <button type="button" class="close" (click)="bIsVinModal=false">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="input-item"  *ngIf="nModalType === 2">
+              <form [formGroup]="getMilesForm" (ngSubmit)="goWithMiles()" validate class="vin-form">
+                <fieldset>
+                  <div class="modal-title uppercase">Your vehicle's mileage:</div>
+                  <div class="form-group has-feedback">
+                    <input type="text" class="form-control full-width" name="mileage" formControlName="mileage">
+                    <button class="btn btn-vin">
+                      Go
+                    </button>
+                    <div *ngIf="bIsVinErrorAlert" class="alert alert-danger">{{strErrorAlert}}</div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+
+            <div class="input-item"  *ngIf="nModalType === 1">
+              <form [formGroup]="getVinForm" (ngSubmit)="goWithVin()" validate class="vin-form">
+                <fieldset>
+                  <div class="modal-title uppercase">Enter your vin:</div>
+                  <div class="form-group has-feedback">
+                    <input type="text" class="form-control full-width" name="vincode" formControlName="vincode">
+                    <button class="btn btn-vin">
+                      Go
+                    </button>
+
+                    <div class="vin-link-area">
+                      Forgot Your Vin? <a (click)="onVin()" class="find-vehicle-link"> Find Vehicle -></a>
+                    </div>
+
+                    <div *ngIf="bIsVinErrorAlert" class="alert alert-danger">{{strErrorAlert}}</div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+
+            <div class="input-item" *ngIf="nModalType === 0">
+              <form [formGroup]="getVehicleForm" (ngSubmit)="showVehicle()" validate class="vin-form" *ngIf="bIsYearsLoad">
+                <fieldset>
+                  <div class="modal-title uppercase">Enter your vehicle details:</div>
+
+                  <div class="form-group has-feedback">
+                    <ng-select
+                    formControlName="year"
+                    name="year"
+                    [options]="arrYears"
+                    (selected)="onYearsSelected($event)"
+                    placeholder="Year">
+                    </ng-select>
+                  </div>
+
+                  <div class="form-group has-feedback">
+                    <ng-select
+                    formControlName="make"
+                    name="make"
+                    [options]="arrMakes"
+                    (selected)="onMakesSelected($event)"
+                    [placeholder]="'Make'">
+                    </ng-select>
+                  </div>
+                  
+                  <div class="form-group has-feedback">
+                    <ng-select
+                    formControlName="model"
+                    name="model"
+                    [options]="arrModels"
+                    (selected)="onModelsSelected($event)"
+                    [placeholder]="'Model'">
+                    </ng-select>
+                  </div>
+
+                  <div class="form-group has-feedback">
+                    <ng-select
+                    formControlName="category"
+                    name="category"
+                    [options]="arrCategories"
+                    (selected)="onCategoriesSelected($event)"
+                    [placeholder]="'Category'">
+                    </ng-select>
+                  </div>
+
+                  <div class="alert alert-danger" *ngIf="bIsVinErrorAlert">
+                    {{strErrorAlert}}
+                  </div>
+
+                  <button class="btn btn-block btn-vehicle">
+                    Show Your Vehicle
+                  </button>  
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="identify-header">
+          <dot-slider
+          [sliderCount]="nTotoalStep"
+          [currentSliderCounter]="nCurrentStep"
+          ></dot-slider>
+          
+          <h3 class="home-heading">{{strTitle}}</h3>
+        </div>
+
+        <div class="identify-body">
+          <div class="identify-content">
+            <div class="desc-area" #descElement></div>
+
+            <div class="display-area">
+              <img [src]="strImg">
+            </div>
+
+            <div class="take-btn" *ngIf="bIsTakePhoto">
+              <input type="file" ng2FileSelect [uploader]="uploader" class="take-photo-input" #takePhoto/>
+              <button (click)="takePhoto.click()"><i class="fa fa-camera" aria-hidden="true"></i> {{strBtnName}}</button>
+            </div>
+
+            <div class="confirm-mileage" *ngIf="strCurrentPageName===arrStrPages[3]">
+              <div class="confirm-message">
+                {{strConfirmMsg}}
+              </div>
+
+              <div class="confirm-value">
+                <input type="text" name="" [(ngModel)]="strConfirmValue" class="full-width">
+                <button class="confirm-btn" (click)="confirmMileage()">CONFIRM</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="identify-action btn-primary full-width">
+            <div class="find-btn" *ngIf="bIsFindBtn">
+              <button (click)="findBtn()">{{strFindBtn}}</button>
+            </div>
+
+            <div class="manual-btn" *ngIf="bIsManualBtn">
+              <button (click)="manualBtn(strManualBtnCallback)">{{strManualBtn}}</button>
+            </div>
+          </div>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+</div>

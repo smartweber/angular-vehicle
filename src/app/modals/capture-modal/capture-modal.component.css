@@ -1,0 +1,24 @@
+.captuure-wrapper #capture_file_input {
+	display: none;
+}
+
+.captuure-wrapper .modal-header button {
+	height: auto;
+}
+
+.captuure-wrapper .modal-body {
+	padding: 10px;
+}
+
+.captuure-wrapper .modal-body .done-icon i {
+	font-size: 24px;
+}
+
+.captuure-wrapper .modal-body .progress {
+	margin: 0;
+}
+
+.captuure-wrapper .modal-action-area .upload-icon {
+    width: 20px;
+    margin-right: 5px;
+}

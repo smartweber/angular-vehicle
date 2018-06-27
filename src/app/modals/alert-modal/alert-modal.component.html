@@ -1,0 +1,39 @@
+<div class="text-center damage-alert-modal">
+  <div class="select-damage modal-wrapper" *ngIf="!modalType">
+    <div class="home-heading modal-header">
+      Selecting your Damage
+    </div>
+
+    <div class="modal-body">
+      <div class="description">
+        {{strDescription}}
+      </div>
+
+      <div class="img-area">
+        <img [src]="strImgUrl">
+      </div>
+    </div>
+
+    <div class="modal-action-area">
+      <a class="btn" (click)="onCancel()">Begin</a>
+    </div>
+  </div>
+
+  <div class="more-damage modal-wrapper" *ngIf="modalType">
+    <div class="home-heading modal-header" [innerHTML]="strTitle"></div>
+
+    <div class="modal-body">
+      <div class="description" [innerHTML]="strDescription"></div>
+
+      <div class="img-area align-item-center">
+        <img class="add-more-img" [src]="strImgUrl">
+      </div>
+    </div>
+
+    <div class="button-area">
+      <a class="btn" (click)="onCancel()" [ngStyle]="moreBtnObject['style']" *ngIf="moreBtnObject['on'] === 1"><span [innerHTML]="moreBtnObject['label']"></span></a>
+      <a class="btn" (click)="next()" [ngStyle]="doneBtnObject['style']" *ngIf="doneBtnObject['on'] === 1"><span [innerHTML]="doneBtnObject['label']"></span></a>
+    </div>
+  </div>
+
+</div>

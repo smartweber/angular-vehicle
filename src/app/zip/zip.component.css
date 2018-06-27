@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  padding: 0 16px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  margin-bottom: 0;
+  margin-top: 0.83em;
+}
+
+.zipcode-area {
+	width: 80%;
+  margin: auto;
+}
+
+.zipcode-area #zipcode {
+  border-color: #0051a8;
+  border-radius: 0;
+  height: 3em;
+}
+
+.description-area {
+	padding: 0px 20px;
+}
+
+.question-area {
+	margin-bottom: 10px;
+	background: #BBDBFF;
+        border-radius: 8px;
+}
+.answer-area {
+	margin-bottom: 10px;
+	background: #EFEFEF;
+        border-radius: 8px;
+}
+.description-area .group {
+	padding: 10px;
+}
+.legend 
+{
+    width: 20px;
+    overflow: hidden;
+    float: left;
+    vertical-align: top;
+}
+
+.answer
+{
+    width: 88%;
+    overflow: hidden;
+    float: left;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.list-group
+{
+  margin-bottom: 10px;
+}
+
+.zip-wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}

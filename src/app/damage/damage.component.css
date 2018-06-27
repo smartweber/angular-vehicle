@@ -1,0 +1,70 @@
+:host {
+	display: block;
+	padding: 0 16px;
+}
+
+h2 {
+	font-size: 20px;
+	font-weight: 500;
+	letter-spacing: 0.005em;
+	margin-bottom: 0;
+	margin-top: 0.83em;
+}
+
+#birdeye_area .car-canvas {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	height: calc( 100% - 45px );
+}
+
+#birdeye_area .blue-btn-wrapper {
+	height: 45px;
+}
+
+#body1 #birdeye_area {
+	height: 100%;
+}
+
+#birdeye_area .damage-header {
+	height: 15%;
+}
+
+#birdeye_area .damage-body {
+	height: 85%;
+}
+
+#birdeye_area .damage-body .blue-btn-wrapper {
+	margin: 0;
+	background-color: #007aff;
+	color: #FFFFFF;
+}
+
+#birdeye_area .damage-body #next .next-btn-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-flow: row;
+	padding: 0 20px;
+	height: 100%;
+}
+#birdeye_area .damage-body #next .next-btn-wrapper .btn-description {
+	display: flex;
+	flex-flow: column;
+	align-items: flex-start;
+	font-size: 12px;
+}
+#birdeye_area .damage-body #next .next-btn-wrapper .description-title {
+	font-size: 9px;
+	text-transform: uppercase;
+}
+#birdeye_area .damage-body #next .next-btn-wrapper .description-part {
+	font-size: 12px;
+}
+#birdeye_area .damage-body #next .next-btn-wrapper .btn-severity {
+    background: white;
+    color: #007aff;
+    font-size: 13px;
+    border-radius: 20px;
+	padding: 7px 20px;
+}

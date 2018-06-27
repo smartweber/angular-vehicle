@@ -1,0 +1,48 @@
+<div class="scrollable">
+  <div class="scrollable-content home zip-wrapper">
+    <div class="text-center">
+      <div class="list-group-item-home">
+        <div>
+          <i class="fa fa-map-marker feature-icon text-primary"></i>
+        </div>
+        <div>          
+          <form #zipForm="ngForm" validate class="zip-form"  (ngSubmit)="next(zipForm)">
+      		<div class="form-group zipcode-area">
+      			<h3 class="home-heading">Enter your Zipcode</h3>
+      			<input type="text" class="form-control" name="zipcode" id="zipcode" [ngModel]="user.zipcode" 
+			        required  #zipcode="ngModel" pattern="^\d{5}(?:[-\s]\d{4})?$">
+			    <small [hidden]="zipcode.valid || (zipcode.pristine && !zipForm.submitted)" class="text-danger">
+			        Zipcode is required and format should be like <i>12321</i>.
+			    </small>
+      		</div>
+      		<button class="btn btn-primary btn-block">
+              Next
+            </button>
+          </form>    
+        </div>
+      </div>
+    </div>
+
+    <div class="description-area">
+	  <div class="question-area group">
+      <div class="legend">
+        <h4>Q.</h4>
+      </div>
+      <div  class="answer">
+        Why do I need to give my zip code?
+      </div>
+      <div class="clear"></div>
+	  </div>
+
+	  <div class="answer-area group">
+        <div class="legend">
+          <h4>A.</h4>
+        </div>
+        <div  class="answer">
+          Different regions and cities  have different pair rates, legal requirement and standardized practices that can potentially effect the cost of repair.
+        </div>
+      <div class="clear"></div>
+    </div>
+	</div>
+  </div>
+</div>

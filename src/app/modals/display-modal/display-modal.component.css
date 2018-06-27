@@ -1,0 +1,13 @@
+.display-wrapper {
+	padding: 0 10px;
+}
+
+.display-wrapper .display-body {
+	max-height: 300px;
+	overflow: auto;
+}
+
+.display-wrapper .home-heading,
+.display-wrapper .next-btn-wrap {
+	padding: 10px 0;
+}

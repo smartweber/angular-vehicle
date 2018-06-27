@@ -1,0 +1,40 @@
+.photo-list-wrapper .photo-item {
+	border-top: 1px solid #ddd;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 10px 30px;
+    font-size: 14px;
+    align-items: center;
+    background: #F7F7F7;
+}
+
+.photo-list-wrapper .green-icon {
+    color: green;
+}
+
+.photo-list-wrapper .photo-item:last-child {
+	border-bottom: 1px solid #ddd;
+}
+
+.photo-list-wrapper .photo-item .photo-action .action-wrapper {
+	display: flex;
+    flex-flow: row;
+    color: #017bff;
+}
+
+.photo-list-wrapper .photo-item .photo-text {
+    flex: 5;
+	font-size: 14px;
+	font-weight: bold;
+    text-align: left;
+}
+
+.photo-list-wrapper .photo-item .photo-action {
+    flex: 3;
+}
+
+.photo-list-wrapper .photo-item .photo-action .action-icon {
+	margin-right: 10px;
+}
+

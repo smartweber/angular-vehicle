@@ -1,0 +1,154 @@
+<div id="damage_modal">
+  <div class="helper-area" *ngIf="nQuestionType === 4">
+    <div class="close" (click)="closeHelper()">
+      <span>&times;</span>
+    </div>
+    <div class="damage-modal-group modal-wrapper">
+      <div class="modal-header">
+        <div class="header-description">{{ strHelperContent }}</div>  
+      </div>
+      
+      <div class="next-btn-wrap">
+        <a class="btn btn-block" (click)="closeHelper()">
+          Close
+        </a>
+      </div>  
+    </div>
+  </div>
+
+  <div class="select-confirm-area" *ngIf="nQuestionType === 5">
+    <div class="damage-modal-group modal-wrapper">
+      <div class="modal-header">
+        <div class="confirm-description">You have selected a Level {{ nSelectedLevel }}  Scrape as your damage. To keep select "Next" or choose "Back" to select another level...
+        <span class="help-mark" (click)="helper()">
+          <i class="fa fa-question-circle" aria-hidden="true"></i>
+        </span>
+        </div>
+      </div>
+
+      <div class="body">
+        <div class="image-area">
+          <img src="{{host}}{{selectedImg.thumb}}"/>
+        </div>
+      </div>
+      
+      <div class="next-btn-wrap next-back-btn-wrap">
+        <a class="btn flex-1" (click)="closeHelper(1)">Back</a>
+        <a class="btn flex-1" (click)="damageFinalized()">Next</a>
+      </div>  
+    </div>
+  </div>
+
+  <div *ngIf="nQuestionType === 1" class="autopart-area"><!-- autopart -->
+    <div class="close" (click)="closeModal()">
+      <span>&times;</span>
+    </div>
+
+    <div class="damage-modal-group modal-wrapper">
+      <div class="modal-header"><!-- header -->
+        <div class="home-heading">select damage severity</div>
+        <div class="header-description">
+          Damage Level:{{arrObjDamageList[nSelectedLevel - nLevelMin]['shortName']}}(Lv.{{ nSelectedLevel }})
+          <span class="help-mark" (click)="helper()">
+            <i class="fa fa-question-circle" aria-hidden="true"></i>
+          </span>
+        </div>  
+      </div><!-- header -->
+
+      <div class="body"><!-- body -->
+        <div class="progress-slider">
+          <level-slider [min]="nLevelMin"
+          [max]="nLevelMax"
+          [selectValue] ="nSelectedLevel"
+          (onLChange)="onChangeSlider($event)"></level-slider>
+        </div>
+
+        <div class="step step{{colindex + nLevelMin}}" *ngFor="let damage of arrObjDamageList; let colindex = index">
+          <div class="image-area" (click)="clickDoorDamage(damage, colindex);">
+            <img src="{{host}}{{damage.thumb}}" (load)="loadImg()"/>
+          </div>
+          <div class="action-area">
+            <div class="second-section row no-margin">
+              <div class="col-xs-6 no-padding" [ngClass]="{'imp-full-width': nSelectedLevel === nLevelMax}">
+                <a class="btn btn-primary full-width btn-less-damage" (click)="previousLevel(colindex)" *ngIf="colindex!=0"><i class="fa fa-angle-left" aria-hidden="true"></i> Less Damage</a>  
+              </div>
+              <div class="col-xs-6 no-padding" [ngClass]="{'imp-full-width': nSelectedLevel === nLevelMin}">
+                  <a class="btn btn-primary full-width btn-more-damage" (click)="nextLevel(colindex)"  *ngIf="colindex!=(nLoadImgTotal - 1)">More Damage <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+
+            <div class="next-btn-wrap row no-margin">
+              <a class="btn btn-block" (click)="clickDoorDamage(damage, colindex)">Next</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- body -->
+  </div><!-- autopart -->
+  
+  <div class="damage-modal-group modal-wrapper" *ngIf="nQuestionType === 2"><!-- select the area damaged-->
+    <div class="modal-header">
+      <div class="home-heading">Select damaged area(s)</div>
+      <div class="header-description">{{ strModalDescription }}</div>  
+    </div>
+
+    <div class="modal-body">
+      <damage-location
+      [damageLocationData]="objDamageData"
+      [bIsNextStatus]="bIsNextStatus"
+      (getAnswerId)="getLocationAnswer($event)">
+      </damage-location>    
+    </div>
+    
+    <div class="next-btn-wrap" *ngIf="bIsSelectedDamageLocation">
+      <a class="btn btn-block" (click)="damageAreaFinalized()">
+        Next
+      </a>
+    </div>  
+  </div><!-- select the area damaged-->
+
+  <div *ngIf="nQuestionType === 3"><!-- question area -->
+    <div class="damage-modal-group question-modal modal-wrapper">
+      <div class="body" [ngClass]="{'img-active': !bIsTextQuestionType}">
+        <div class="content">
+          {{damageQuestionData.question}}
+        </div>
+
+        <div class="select-sectiion">
+          <!-- <div class="switch-type" *ngIf="isTextQuestionType">
+
+            <bSwitch
+              [switch-on-text]="'✓'"
+              [switch-on-color]="'primary'"
+              [switch-off-text]="'✕'"
+              [switch-off-color]="'warning'"
+              [switch-size]="'mini'"
+              [switch-handle-width]="30"
+              [(ngModel)]="questionState"
+              (onChangeState)="onChangeState($event)"
+            ></bSwitch>  
+          </div> -->
+
+          <div class="img-type">
+            <label *ngFor="let answer of damageQuestionData.answer;" class="img-block" (click)="selectAnswer(answer.id)">
+              <img src="{{host}}{{answer.img}}" width="47" [ngClass]="{active: nSelectedQuestionId === answer.id}" *ngIf="!bIsTextQuestionType">       
+              <div class="img-question-content" *ngIf="!bIsTextQuestionType">
+                {{answer.text}}
+              </div>
+              <div class="img-question-content" *ngIf="bIsTextQuestionType">
+                <input type="radio" name="questionOption" (click)="selectAnswer(answer.id)" [checked]="nQuestionOption === answer.id"/> {{answer.text}}
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="next-btn-wrap" *ngIf="nQuestionOption !== -1">
+        <a class="btn btn-block" (click)="damageQuestionsFinalized(damageQuestionData.callback);">
+          Next
+        </a>  
+      </div> 
+
+    </div>
+  </div><!-- question area -->
+</div>

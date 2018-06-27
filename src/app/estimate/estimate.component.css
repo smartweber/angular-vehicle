@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  padding: 0 16px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  margin-bottom: 0;
+  margin-top: 0.83em;
+}
+
+.action-area {
+	position: fixed;
+    bottom: 60px;
+    width: calc( 100% - 10px );
+}
+
+.action-area .next-btn-area {
+	border: 1px solid #333;
+}
+
+.action-area button {
+	width: 280px;
+	margin: 3px 0;
+}
+
+.estimate-wrapper .estimate-body {
+  overflow: scroll;
+}
+
+.blue-btn-wrapper {
+  margin: 20px;
+}
+
+.blue-btn-wrapper a {
+  border-radius: 0;
+}

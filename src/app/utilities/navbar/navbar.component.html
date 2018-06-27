@@ -1,0 +1,20 @@
+<nav class="navbar navbar-app navbar-absolute-bottom" #navbarApp *ngIf="(bIsActionVisible && bIsNextPage || bIsMorePage)">
+	<div class="action-btn-area">
+    <div class="more-btn-area">
+      <div class="drop-btn-area">
+        <div *ngFor="let action of arrObjActionData;let i=index" class="flex-1 btn-item">
+          <a class="action-link" (click)="moreAction(action.load, action.text, i)" [ngClass]="{active: nSelectedMoreIndex === i}">
+            <i class="fa fa-{{action.icon}}" aria-hidden="true"></i>
+            <span class="action-btn-text">{{action.text}}</span>
+          </a>
+        </div>
+      </div> 
+    </div>
+
+    <div class="row no-margin">
+      <a class="btn btn-back col-xl-6 col-xl-offset-3" (click)="gotoEstimate()">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>Back to vEstimate
+      </a>
+    </div>
+	</div>
+</nav>

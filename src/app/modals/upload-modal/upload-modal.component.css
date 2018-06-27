@@ -1,0 +1,77 @@
+.upload-modal-area {
+}
+
+.upload-modal-area .close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.upload-modal-area .title {
+	font-size: 17px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.upload-modal-area .modal-body {
+	display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.upload-modal-area .modal-body .description {
+	font-size: 14px;
+    padding: 5px;
+}
+
+.upload-modal-area .modal-action-area .action-btn {
+	display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-modal-area .modal-action-area .action-btn .upload-icon {
+	width: 30px;
+}
+
+.upload-modal-area .modal-action-area .action-btn .upload-title {
+    margin-left: 5px;
+}
+
+.upload-modal-area #upload_damage_photo {
+	display: none;
+}
+
+.upload-modal-area .img-wrapper .progress {
+	background: #aaa;
+    height: 5px;
+    margin: 30px 20px;
+}
+
+.upload-modal-area .img-wrapper .done-icon {
+	margin: 20px 0;
+}
+
+.upload-modal-area .img-wrapper .done-icon i {
+	font-size: 50px;
+}
+
+.upload-modal-area .img-wrapper .done-icon i.success {
+	color: #007aff;
+}
+
+.upload-modal-area .img-wrapper .done-icon i.error {
+	color: #ff0000;
+}
+
+.upload-modal-area .waiting-btn,
+.upload-modal-area .done-btn {
+	color: #007aff;
+	font-size: 17px;
+}
+
+.upload-modal-area .done-btn.warning-btn {
+	color: #ff0000;
+}

@@ -1,0 +1,65 @@
+<div class="scrollable">
+  <div class="scrollable-content home">
+    <div class="list-group text-center">
+      <div class="list-group-item-home vehicle-area" *ngIf="bIsPageLoading">
+        <div class="vehicle-header">
+          <dot-slider
+          [sliderCount]="nTotoalStep"
+          [currentSliderCounter]="nCurrentStep"
+          ></dot-slider>
+          <div class="car-img-wrapper">
+            <img src="assets/img/car.png" width="80px">
+          </div>
+          <h3 class="home-heading">Confirm your Vehicle</h3>
+        </div>
+
+        <div class="vehicle-body">
+          <table class="table vehicle-table" style="margin: 0 auto;" *ngIf="bIsCheckPermission">
+            <tr *ngIf="vehicleData.AutoVIN">
+              <th><div class="vehicle-title">VIN</div></th>
+              <td>
+                <div>{{vehicleData.AutoVIN}}</div>
+                <div></div>
+              </td>
+            </tr>
+            <tr *ngIf="vehicleData.Make">
+              <th><div class="vehicle-title">Make</div></th>
+              <td>
+                <div>{{vehicleData.Make}}</div>
+                <div></div>
+              </td>
+            </tr>
+            <tr *ngIf="vehicleData.Model">
+              <th><div class="vehicle-title">Model</div></th>
+              <td>
+                <div>{{vehicleData.Model}}</div>
+                <div></div>
+              </td>
+            </tr>
+            <tr *ngIf="vehicleData.AutoLicense">
+              <th><div class="vehicle-title">License</div></th>
+              <td>
+                <div>{{vehicleData.AutoLicense}}</div>
+                <div></div>
+              </td>
+            </tr>
+            <tr *ngIf="vehicleData.AutoMileage">
+              <th><div class="vehicle-title">Miles</div></th>
+              <td>
+                <div>{{vehicleData.AutoMileage | number : 0}}</div>
+                <div></div>
+              </td>
+            </tr>
+          </table>
+          <br />
+          <div class="blue-btn-wrapper">
+            <a class="btn btn-primary btn-block main-btn" (click)="next();" >
+              Next
+            </a>
+            <small><a href="#">Not your vehicle?</a></small>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

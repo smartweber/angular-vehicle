@@ -1,0 +1,27 @@
+:host {
+  width: 100%;
+  display: flex;
+}
+
+.damage-level-wrapper {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.damage-level-wrapper .barChart{
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  background: blue;
+  color: #fff;
+  padding: 7px 0;
+}
+
+.damage-level-wrapper .barChart.active {
+  border: 2px solid #333;
+}

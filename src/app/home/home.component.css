@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  padding: 0 16px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 0 0 8px;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+.home-wrapper {
+	display: flex;
+  flex-flow: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.home-wrapper .home-header {
+	height: 20%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-wrapper .home-body {
+	height: 80%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}

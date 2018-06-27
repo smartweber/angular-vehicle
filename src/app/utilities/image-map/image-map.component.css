@@ -1,0 +1,202 @@
+:host {
+    width: 100%;
+}
+
+#image_map {
+  display: none;
+}
+
+.effect_canvas {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.height-auto {
+	height: auto !important;
+}
+
+.map-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.map-wrapper .map-header {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    min-height: 90px;
+}
+
+.map-wrapper .map-header .map-title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.map-wrapper .map-content {
+	height: 80%;
+	width: 100%;
+	display: flex;
+	flex-flow: row;
+}
+
+.map-wrapper .map-content.modal-map-content {
+	height: auto;
+}
+
+.map-wrapper .map-content.modal-map-content .map-container {
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+
+.map-wrapper .map-content.modal-map-content .map-container .wrapper {
+	display: flex;
+}
+
+.map-wrapper .map-content .autopart-area {
+	font-size: 11px;
+	height: 100%;
+	background: #ededed;
+    color: #949596;
+    overflow-y: auto;
+}
+.left-area
+{
+	text-align: right;
+}
+.right-area
+{
+	text-align: left;
+}
+.map-content .autopart-item {
+    border-bottom: 1px solid white;
+}
+
+.map-content .autopart-item .item-wrapper {
+	padding: 10px;
+	width: 100%;
+}
+
+.map-content .autopart-item.selected-item {
+	background-color: orange;
+	color: #000000;
+}
+
+.map-content .autopart-item.completed-item {
+	background-color: black;
+	color: white;
+}
+
+.map-content .left-area .autopart-item.selected-item {
+	text-align: right;
+}
+
+.map-content .right-area .autopart-item.selected-item {
+	text-align: left;
+}
+
+.map-wrapper .map-content .map-container {
+	height: 100%
+}
+
+.map-wrapper .map-content .map-container .wrapper {
+	display: inline-block;
+	position: relative;
+}
+
+.map-wrapper .map-content .map-container img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.map-wrapper .map-header .action-area {
+	position: relative;
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
+	font-size: 10px;
+	width: 70%;
+	min-width: 250px;
+    color: #007aff;
+}
+
+.map-wrapper .map-header .action-area.location-action-area {
+	min-width: 200px;
+	width: 60%;
+}
+
+.map-wrapper .map-header .action-area .slide-counter {
+	position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    top: -10px;
+}
+
+.map-wrapper .map-header .action-area .slide-counter.left-slide-counter {
+    left: -10px;
+}
+
+.map-wrapper .map-header .action-area .slide-counter.right-slide-counter {
+    right: -10px;
+}
+
+.map-wrapper .map-header .action-area .slide-counter.center-slide-counter {
+    left: calc( 50% - 10px );
+}
+
+.map-wrapper .map-header .action-area .action-item {
+	width: 33.33%;
+	padding: 6px 0;
+	border: 1px solid #007aff;
+}
+
+.map-wrapper .map-header .action-area .action-item.left-item {
+	border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-right: 0;
+}
+
+.map-wrapper .map-header .action-area .action-item.right-item{
+	border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-left: 0;
+}
+
+.map-wrapper .map-header .action-area .action-item.action-active {
+	background: #007aff;
+    color: white;
+}
+
+.map-wrapper .map-header .action-area  .center-item{
+    border-left: 1px solid #007aff;
+    border-right: 1px solid #007aff;
+}
+
+.map-content.padding-10 {
+	padding: 10px;
+}
+
+.center-right-area.autopart-area {
+    padding: 200px 0 0 0;
+}
+
+.map-wrapper .map-header .map-title select {
+	border: 0;
+    background: transparent;
+    outline: none;
+}

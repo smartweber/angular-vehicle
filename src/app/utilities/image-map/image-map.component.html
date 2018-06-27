@@ -1,0 +1,74 @@
+<div class="map-wrapper full-width" *ngIf="bIsMapImgLaod" [ngClass]="{'height-auto': bPreShowDamages}">
+	<div class="map-header" *ngIf="bIsColumnMethod">
+		<div class="location-action-area action-area" *ngIf="bIsLocation">
+			<div class="action-item" *ngFor="let location of arrObjLocations" (click)="onSelectLocation(location['location'])" [ngClass]="{'action-active': location['selected'] === 1}">{{location['label']}}</div>
+		</div>
+
+		<div class="action-area">
+			<div class="action-item left-item" (click)="onChangeSlider(0)" [ngClass]="{'action-active': nSelectedSection ===0}">Driver Slide</div>
+			<div class="action-item center-item" (click)="onChangeSlider(1)" [ngClass]="{'action-active': nSelectedSection ===1}">Center</div>
+			<div class="action-item right-item" (click)="onChangeSlider(2)" [ngClass]="{'action-active': nSelectedSection ===2}">Passenger Slide</div>
+			<div class="slide-counter left-slide-counter" *ngIf="nLeftSlideCounter > 0">{{ nLeftSlideCounter }}</div>
+			<div class="slide-counter center-slide-counter" *ngIf="nCenterSlideCounter > 0">{{ nCenterSlideCounter }}</div>
+			<div class="slide-counter right-slide-counter" *ngIf="nRightSlideCounter > 0">{{ nRightSlideCounter }}</div>
+		</div>
+
+		<div class="map-title" [ngClass]="{'text-left': nSelectedSection ===0, 'text-center': nSelectedSection ===1, 'text-right': nSelectedSection ===2}">
+			<strong class="uppercase">
+				select part:
+			</strong>
+		</div>
+	</div>
+	
+	<div class="map-content row no-margin clearfix" *ngIf="!bPreShowDamages">
+		<div class="col-xs-3 no-padding autopart-area left-area" *ngIf="bIsColumnMethod && nSelectedSection ===1">
+			<div class="autopart-item" *ngFor="let slider of leftSliders;" (click)="onSlider(slider['index'])">
+				<div class="item-wrapper" *ngIf="!slider['selected'] && slider['data']['complete'] != 1" [ngStyle]="{'background-color': slider['data']['baseAutoPartColor'], 'color': slider['data']['baseTextColor'] }">{{slider['data']['AutoPart']}}</div>
+				<div class="item-wrapper" *ngIf="slider['selected'] && slider['data']['complete'] != 1" [ngStyle]="{'background-color': slider['data']['highlightAutoPartColor'], 'color': slider['data']['highlightTextColor'] }">{{slider['data']['AutoPart']}}</div>
+				<div class="item-wrapper" *ngIf="slider['data']['complete'] == 1" [ngStyle]="{'background-color': slider['data']['completeAutoPartColor'], 'color': slider['data']['completeTextColor'] }">{{slider['data']['AutoPart']}}</div>
+			</div>
+		</div>
+
+		<div class="col-xs-4 no-padding autopart-area left-area" *ngIf="bIsColumnMethod && nSelectedSection ===0">
+			<div class="autopart-item" *ngFor="let slider of leftSliders;" (click)="onSlider(slider['index'])">
+				<div class="item-wrapper" *ngIf="!slider['selected'] && slider['data']['complete'] != 1" [ngStyle]="{'background-color': slider['data']['baseAutoPartColor'], 'color': slider['data']['baseTextColor'] }">{{slider['data']['AutoPart']}}</div>
+				<div class="item-wrapper" *ngIf="slider['selected'] && slider['data']['complete'] != 1" [ngStyle]="{'background-color': slider['data']['highlightAutoPartColor'], 'color': slider['data']['highlightTextColor'] }">{{slider['data']['AutoPart']}}</div>
+				<div class="item-wrapper" *ngIf="slider['data']['complete'] == 1" [ngStyle]="{'background-color': slider['data']['completeAutoPartColor'], 'color': slider['data']['completeTextColor'] }">{{slider['data']['AutoPart']}}</div>
+			</div>
+		</div>
+
+		<div class="no-padding map-container" #mapContainer  [ngClass]="{'col-xs-6': nSelectedSection === 1, 'col-xs-8': nSelectedSection !== 1}">
+			<div class="wrapper">
+				<img src="{{strImgSrc}}" id="{{strImageMapId}}_image_map" (load)="loadImg()" [style.width.px]="nMapW" [style.height.px]="nMapH">
+				<canvas id="{{strImageMapId}}_image_canvas" class="effect_canvas"></canvas>
+				<canvas id="{{strImageMapId}}_effect_canvas" class="effect_canvas" (click)="canvasClick($event)"></canvas>	
+			</div>
+		</div>
+
+		<div class="col-xs-3 autopart-area center-right-area right-area" *ngIf="bIsColumnMethod && nSelectedSection ===1">
+			<div class="autopart-item" *ngFor="let slider of rightSliders;" (click)="onSlider(slider['index'])">
+				<div class="item-wrapper" *ngIf="!slider['selected'] && slider['data']['complete'] != 1" [ngStyle]="{'background-color': slider['data']['baseAutoPartColor'], 'color': slider['data']['baseTextColor'] }">{{slider['data']['AutoPart']}}</div>
+				<div class="item-wrapper" *ngIf="slider['selected'] && slider['data']['complete'] != 1" [ngStyle]="{'background-color': slider['data']['highlightAutoPartColor'], 'color': slider['data']['highlightTextColor'] }">{{slider['data']['AutoPart']}}</div>
+				<div class="item-wrapper" *ngIf="slider['data']['complete'] == 1" [ngStyle]="{'background-color': slider['data']['completeAutoPartColor'], 'color': slider['data']['completeTextColor'] }">{{slider['data']['AutoPart']}}</div>
+			</div>
+		</div>
+
+		<div class="col-xs-4 no-padding autopart-area right-area" *ngIf="bIsColumnMethod && nSelectedSection === 2">
+			<div class="autopart-item" *ngFor="let slider of rightSliders;" (click)="onSlider(slider['index'])">
+				<div class="item-wrapper" *ngIf="!slider['selected'] && slider['data']['complete'] != 1" [ngStyle]="{'background-color': slider['data']['baseAutoPartColor'], 'color': slider['data']['baseTextColor'] }">{{slider['data']['AutoPart']}}</div>
+				<div class="item-wrapper" *ngIf="slider['selected'] && slider['data']['complete'] != 1" [ngStyle]="{'background-color': slider['data']['highlightAutoPartColor'], 'color': slider['data']['highlightTextColor'] }">{{slider['data']['AutoPart']}}</div>
+				<div class="item-wrapper" *ngIf="slider['data']['complete'] == 1" [ngStyle]="{'background-color': slider['data']['completeAutoPartColor'], 'color': slider['data']['completeTextColor'] }">{{slider['data']['AutoPart']}}</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="map-content modal-map-content padding-10" *ngIf="bPreShowDamages">
+		<div class="map-container full-width" #mapContainer id="map_content_{{strImageMapId}}">
+			<div class="wrapper">
+				<img src="{{strImgSrc}}" id="{{strImageMapId}}_image_map" (load)="loadImg()" [style.width.px]="nMapW" [style.height.px]="nMapH">
+				<canvas id="{{strImageMapId}}_image_canvas" class="effect_canvas"></canvas>
+				<canvas id="{{strImageMapId}}_effect_canvas" class="effect_canvas" (click)="canvasClick($event)"></canvas>	
+			</div>
+		</div>
+	</div>
+</div>

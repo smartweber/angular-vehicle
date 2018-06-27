@@ -1,0 +1,23 @@
+<div class="captuure-wrapper text-center upload-modal-area modal-wrapper">
+	<div class="modal-body">
+		<div class="img-wrapper">
+	  		<div class="progress" *ngIf="strCurrentStatus === arrStrSTATUSES[0]">
+	  			<div class="progress-bar" role="progressbar" #fileProgress></div>
+	  		</div>
+	  		<div class="done-icon" *ngIf="strCurrentStatus === arrStrSTATUSES[1]">
+	  			<i class="fa fa-check-circle success" [style.color]="'#007aff'" aria-hidden="true" *ngIf="bIsSuccessResult"></i>
+	  			<i class="fa fa-times-circle error" [style.color]="'red'" aria-hidden="true" *ngIf="!bIsSuccessResult"></i>
+	  		</div>
+	  	</div>
+	</div>
+
+	<div class="modal-action-area pointer">
+		<div class="waiting-btn upload-action-wrapper" *ngIf="strCurrentStatus === arrStrSTATUSES[0]">
+		Uploading ...
+		</div>
+
+		<div class="done-btn pointer upload-action-wrapper" *ngIf="strCurrentStatus === arrStrSTATUSES[1]" [ngClass]="{'warning-btn': !bIsSuccessResult}">
+	  		{{strResult}}
+	  	</div>
+	</div>
+</div>

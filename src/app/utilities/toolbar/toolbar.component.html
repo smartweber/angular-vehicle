@@ -1,0 +1,28 @@
+<div class="navbar navbar-app navbar-absolute-top" *ngIf="bIsPageLoading">
+    <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
+        <img [src]="strLogoIcon" alt="Virtual Evaluator" class="navbar-img" *ngIf="strLogoIcon" />
+    </div>
+    <div class="btn-group pull-left" *ngIf="bIsLiveHelp">
+        <a class="btn btn-navbar live-help-link" onclick="olark('api.box.expand')">
+            <img [src]="strLiveHelpIcon" class="navbar-img">
+        </a>
+    <!--
+    <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
+    <i class="fa fa-bars"></i> Menu
+    <a class="btn btn-navbar" [routerLink]="['/help']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
+    </div>
+    -->
+    </div>
+
+    <div class="btn-group dropdown pull-right" *ngIf="bIsHelp">
+        <a class="btn btn-navbar dropdown-toggle help-link" data-toggle="dropdown" (click)="drop()">
+            <img [src]="strHelpIcon" class="navbar-img">
+        </a>
+        <ul class="dropdown-menu" *ngIf="bIsDropDown">
+            <li *ngFor="let helpLink of arrObjHelpLinks">
+                <a onclick="olark('api.box.expand')" (click)="drop()" *ngIf="helpLink.link==='livechat'">{{helpLink.text}}</a>
+                <a (click)="displayLink(helpLink.link)" *ngIf="helpLink.link!=='livechat'">{{helpLink.text}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

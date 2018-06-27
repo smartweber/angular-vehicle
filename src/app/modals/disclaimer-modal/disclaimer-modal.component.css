@@ -1,0 +1,19 @@
+.disclaimer-wrapper .home-heading {
+	padding: 20px;
+}
+
+.disclaimer-wrapper .disclaimer-body {
+	padding: 0 10px 10px;
+}
+
+.disclaimer-wrapper .next-back-btn-wrap {
+	font-size: 17px;
+	display: flex;
+	flex-flow: row;
+	border-top: 1px solid #ccc;
+	padding: 10px 0;
+}
+
+.disclaimer-wrapper .next-back-btn-wrap .btn-cancel{
+	color: #ccc;
+}

@@ -1,0 +1,47 @@
+<div class="scrollable" id="body1">
+  <div class="scrollable-content home">
+    <div class="list-group text-center">
+      <div class="list-group-item-home flex-wrapper" id="birdeye_area" *ngIf="bIsLoading">
+        <div class="damage-header flex-wrapper">
+          <dot-slider
+          [sliderCount]="nTotoalStep"
+          [currentSliderCounter]="nCurrentStep"
+          ></dot-slider>
+          <h3 class="home-heading">Select the damaged part(s)</h3>
+        </div>
+
+        <div class="damage-body flex-wrapper">
+          <div class="car-canvas">
+            <car-map
+            (showNextSeverity)="showNextSeverity($event)"
+            (checkBookMark)="checkNextAbility($event)"
+            (eventChangeLocation)="eventChangeLocation($event)"
+            (initEventData)="initEventData($event)"
+            [slug]="strSlug"
+            [mapData]="mapData"
+            ></car-map>
+          </div>
+          <div id="next" class="blue-btn-wrapper" #nextAreaElement>
+            <div class="next-btn-wrapper" *ngIf="bIsSeverity">
+              <div class="btn-description">
+                <div class="description-title">SELECTED PART:</div>
+                <div class="description-part">{{strBtnDesc}}</div>
+              </div>
+
+              <a class="btn btn-primary btn-severity" (click)="onNextSeverity()">Next: <strong>Severity</strong> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+
+            <div class="next-btn-wrapper" *ngIf="bIsNext && !bIsSeverity" >
+              <div class="btn-description">Add More Damage</div>
+              <a class="btn btn-primary btn-severity" (click)="next();">
+                Next
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<span defaultOverlayTarget></span>

@@ -1,0 +1,14 @@
+.map-area {
+  position: relative;
+}
+
+#car_img {
+  display: none;
+}
+
+#effect_canvas {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.7;
+}

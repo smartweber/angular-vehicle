@@ -1,0 +1,23 @@
+.scrollable.more-wrapper {
+	padding: 71px 0 108px;
+}
+
+.more-wrapper iframe {
+  border: none;
+}
+
+.more-wrapper .more-header {
+	height: 15%;
+	display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.more-wrapper .more-body {
+	height: 85%;
+}
+
+.more-wrapper .more-body iframe {
+  height: 100%;
+}

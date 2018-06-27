@@ -1,0 +1,31 @@
+<div class="scrollable">
+  <div class="scrollable-content home">
+    <div class="text-center home-wrapper">
+      <h1 class="home-header">Vehicle Incident Report <small>v2.4</small></h1>
+      <div class="home-body">
+        <div>
+          <i class="fa fa-flag-o feature-icon text-primary"></i>
+        </div>
+        <div>
+          <h3 class="home-heading">Enter your Claim # or VIN</h3>
+          You will be asked to provide photos and some basic information about the incident. 
+          <form  [formGroup]="contactForm" (ngSubmit)="next()" validate class="contact-form">
+            <fieldset>
+              <div class="form-group has-success has-feedback">
+                <input type="number" class="form-control" name="claim_id" formControlName="claim_id" placeholder="Claim # or VIN" required>
+              </div>
+
+              <div class="alert alert-danger" *ngIf="bIsAlert">
+                {{ strAlertText }}
+              </div>
+            </fieldset>
+            <hr>
+            <button class="btn btn-primary btn-block">
+              Next
+            </button>          
+          </form>   
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

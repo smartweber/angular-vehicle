@@ -1,0 +1,39 @@
+<!-- <accordion *ngIf="imgList.length > 0">
+  <accordion-group *ngFor="let img of imgList; let colindex = index" [isOpened]="isAccordionOpened[colindex]">
+    <accordion-heading>
+      <h4 class="panel-title">
+        {{img.text}}
+        <i class="fa fa-spinner fa-spin pull-right ng-hide" id="loading_photo_1" *ngIf="uploadStatus[colindex]===1"></i>
+        <i class="fa fa-check pull-right" style="color: green;" id="done_photo_1" *ngIf="uploadStatus[colindex]===2"></i>
+        <i class="fa fa-asterisk pull-right text-danger" aria-hidden="true" *ngIf="photoRequires[colindex]===1 && uploadStatus[colindex]!==2"></i>
+      </h4>
+    </accordion-heading>
+    <div class="panel-body" style="text-align: center;">
+      <img src="{{host}}{{img.img}}" alt="{{img.text}}" class="{{img.id}}" id="img_photo_{{img.id}}" />
+      <div class="sample_text" id="sample_text_photo_{{img.id}}">{{img.text}}</div>
+      <input id="photo_{{img.id}}" type="file" accept="image/*;capture=camera" data-my-Directive name="file_{{img.id}}" (change)="upload($event, img.id, colindex)">
+    </div>
+  </accordion-group>
+</accordion> -->
+
+<div class="photo-list-wrapper flex-wrapper" *ngIf="arrObjImgList.length > 0">
+  <div class="photo-item" *ngFor="let img of arrObjImgList; let itemIndex = index;">
+    <div class="photo-text">
+      <i class="fa fa-spinner fa-spin fa-3w fa-fw" aria-hidden="true" *ngIf="img.uploadStatus"></i>
+      <i class="fa fa-check green-icon" aria-hidden="true" *ngIf="img.uploaded && !img.uploadStatus"></i>
+      <i class="fa fa-asterisk" aria-hidden="true" *ngIf="img.required"></i>{{img.text}}
+    </div>
+    <div class="photo-action pointer">
+      <div class="action-wrapper" (click)="openUploadModal(itemIndex)">
+        <div class="action-icon">
+          <i class="fa fa-camera" aria-hidden="true" *ngIf="!img.uploaded"></i>
+          <i class="fa fa-check-circle" aria-hidden="true" *ngIf="img.uploaded"></i>
+        </div>
+        <div class="action-text">
+          <div *ngIf="!img.uploaded">Add Photo</div>
+          <div *ngIf="img.uploaded">View Photo</div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>

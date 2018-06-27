@@ -1,0 +1,128 @@
+:host {
+  border-color: #e1e1e1;
+  border-style: solid;
+  border-width: 0;
+  display: block;
+  padding: 0 16px;
+}
+
+.navbar-app.navbar-absolute-bottom {
+  border: none;
+}
+
+nav a {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 48px;
+  margin-right: 20px;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+nav a.router-link-active {
+  color: #106cc8;
+}
+
+.action-btn-area {
+  margin: 2px 0 0;
+}
+
+.action-btn-area a.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.navbar-app .btn-item .btn {
+  height: 38px;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-app.drop {
+  height: 100% !important;
+  padding: 0 !important;
+  background: rgba(0,0,0,0.5);
+}
+
+.navbar-app.drop .action-btn-area {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.navbar-app .drop-btn-area {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 15px;
+  width: 90%;
+  margin: auto;
+}
+
+.navbar-app .drop-btn-area .btn-item {
+  border-right: 1px solid;
+}
+
+.navbar-app .drop-btn-area .btn-item:last-child {
+  border-right: 0;
+}
+
+.navbar-app .drop-btn-area .action-link {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  line-height: 1.4em;
+  text-align: center;
+  height: 56px;
+  color: #333;
+}
+
+.navbar-app .drop-btn-area .action-link.active {
+  color: #007aff;
+}
+
+.navbar-app .drop-btn-area .action-link span {
+  width: 100%;
+}
+
+.navbar-app .drop-btn-area .more-btn-link {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar-app .drop-btn-area .more-btn-link .action-btn-text {
+  margin-left: 1em;
+}
+
+.navbar-app .drop-btn-area a.btn:last-child {
+  border-bottom: 0;
+}
+
+.navbar-app .action-btn-area .btn-back {
+  text-transform: none;
+}
+
+.navbar-app .action-btn-area .btn-back i {
+  font-size: 25px;
+  margin-right: 5px;
+}
+
+.next-btn-area.drop a.btn-drop {
+  background-color: #333 !important;
+  border-radius: 0 !important;
+}
+
+.more-btn-area .next-btn-area {
+  margin: 0 0 10px;
+}

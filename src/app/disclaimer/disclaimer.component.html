@@ -1,0 +1,25 @@
+<div class="scrollable" *ngIf="bIsLoading">
+  <div class="scrollable-content home">
+    <div class="list-group text-center">
+      <div class="list-group-item-home">
+        <div>
+          <i class="fa fa-align-justify feature-icon text-primary"></i>
+        </div>
+        <div>
+          <h3 class="home-heading">Disclaimer</h3>
+          <div *ngIf="!bIsExistSlug">
+            <p>Call us</p>  
+          </div>
+          
+          <div *ngIf="bIsExistSlug">
+            <p>vEstimate is an approximation of damages you entered. They are based on the anticipated details of the work to be done. It is possible for unexpected complications to cause some deviation from the estimate. If additional parts or labor are required you will be contacted immediately.</p>
+            <a class="btn btn-primary btn-block" (click)="next()" >
+              Next
+            </a>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

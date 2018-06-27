@@ -1,0 +1,27 @@
+.player-modal-wrapper .player-wrapper iframe {
+	width: 100%;
+	height: auto;
+}
+
+.player-modal-wrapper .close-btn {
+	position: absolute;
+    top: -13px;
+    right: -13px;
+    z-index: 100;
+}
+
+.player-modal-wrapper .close-btn i {
+	font-size: 20px;
+	color: #ccc;
+}
+
+.player-modal-wrapper .player-wrapper {
+}
+
+.player-modal-wrapper .player-wrapper video {
+	width: 100%;
+}
+
+vg-track-selector select.trackSelector {
+	padding: 0 !important;
+}

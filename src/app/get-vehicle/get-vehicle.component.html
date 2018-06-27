@@ -1,0 +1,77 @@
+<div class="scrollable">
+  <div class="scrollable-content home">
+    <div class="list-group">
+      <div class="list-group-item-home vehicle-model-wrapper">
+
+        <div class="vehicle-model-body">
+          <form [formGroup]="vinForm" validate class="vin-form" *ngIf="bIsVinLoad">
+          	<fieldset>
+          		<div class="form-group has-feedback">
+          			<h3 class="home-heading text-center">Enter your VIN#</h3>
+                <input type="text" class="form-control full-width" name="vincode" formControlName="vincode" placeholder="VIN #" pattern="^[A-Z0-9]{17}$" (keyup)="keypressVin($event.target.value)">
+                  <small class="-underline">
+                    <a (click)="onVin()">How do I find my VIN?</a>
+                  </small>
+                <small *ngIf="bIsVinError" class="text-danger">{{ strVinErrorText }}</small>
+          		</div>
+          	</fieldset>
+          </form>
+
+          <form [formGroup]="getVehicleForm" (ngSubmit)="loadClaim()" validate class="vin-form" *ngIf="bIsYearsLoad">
+            <fieldset>
+              <div class="form-group has-feedback">
+                <h3 class="home-heading text-center">Enter Year, Make & Model</h3>
+                <ng-select
+                formControlName="year"
+                name="year"
+                [options]="arrYears"
+                (selected)="onYearsSelected($event)"
+                placeholder="Year">
+                </ng-select>
+              </div>
+
+              <div class="form-group has-feedback">
+                <ng-select
+                formControlName="make"
+                name="make"
+                [options]="arrMakes"
+                (selected)="onMakesSelected($event)"
+                [placeholder]="'Make'">
+                </ng-select>
+              </div>
+              
+              <div class="form-group has-feedback">
+                <ng-select
+                formControlName="model"
+                name="model"
+                [options]="arrModels"
+                (selected)="onModelsSelected($event)"
+                [placeholder]="'Model'">
+                </ng-select>
+              </div>
+              
+              <div class="form-group has-feedback">
+                <ng-select
+                formControlName="category"
+                name="category"
+                [options]="arrCategories"
+                (selected)="onCategoriesSelected($event)"
+                [placeholder]="'Category'">
+                </ng-select>
+              </div>
+
+              <div class="alert alert-danger" *ngIf="bIsVehicleError">
+                {{ strVehicleErrorText }}
+              </div>
+
+              <button class="btn btn-primary btn-block" *ngIf="nNextAvailable>=2">
+                Next
+              </button>  
+            </fieldset>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

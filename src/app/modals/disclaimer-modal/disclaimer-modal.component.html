@@ -1,0 +1,12 @@
+<div class="disclaimer-wrapper">
+	<div class="home-heading">
+		Disclaimer
+	</div>
+
+	<div class="disclaimer-body" [innerHtml]='disclaimerData'></div>
+
+	<div class="next-btn-wrap next-back-btn-wrap">
+		<a class="btn flex-1" (click)="onCancel()">I Agree</a>
+		<a class="btn btn-cancel flex-1" (click)="gotoHome()">Cancel(I Do Not Agree)</a>
+    </div> 
+</div>

@@ -1,0 +1,9 @@
+<div class="damgage-location" *ngIf="locationLoading">
+    <image-map [mapData]="locationMapData"
+    [bPreShowDamages]="true"
+    [bIsNextStatus]="bIsNextStatus"
+    [mapStyle] = "locationMapStyle"
+    [bCarmap]="false"
+    (clickOnImage)="clickOnImage($event)"
+    (loadImage)="loadedImage($event)"></image-map>
+</div>

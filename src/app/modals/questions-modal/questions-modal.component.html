@@ -1,0 +1,33 @@
+<div class="text-center questions-modal">
+	<div class="modal-wrapper">
+		<div class="modal-body" *ngIf="bIsLoad; else templateName">
+			<div class="form-wrapper">
+				<form [formGroup]="questionForm" (ngSubmit)="onSubmitForm()" validate class="question-form">
+					<div class="input-area">
+						<div class="form-group" *ngFor="let question of arrQuestions">
+							<div>{{ question['text'] }}</div>
+							<ng-select *ngIf="question['answer_type'] === 'select'"
+				            formControlName="{{question['variable']}}"
+				            [options]="objQuestionOptions[question['variable']]">
+				            </ng-select>
+
+				            <input type="text" formControlName="{{question['variable']}}" class="full-width form-control" *ngIf="question['answer_type'] === 'input'">
+						</div>
+					</div>
+
+					<div class="next-btn-wrap" *ngIf="questionForm.valid">
+						<button class="btn btn-block">Next</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<ng-template #templateName>
+			<div class="modal-body">
+				<div class="spinner">
+					<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+				</div>
+			</div>
+		</ng-template>
+	</div>
+</div>

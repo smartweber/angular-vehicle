@@ -1,0 +1,14 @@
+<div class="map-area full-height">
+  <div id="car_bg_wrap" class="full-height">
+  	<image-map
+  	[mapData]="mapData"
+    [bPreShowDamages]="false"
+    [mapStyle] = "carMapStyle"
+    [bCarmap]="true"
+    (selectAutoPart)="selectAutoPart($event)"
+    (doneAutoPart)="doneAutoPart()"
+    (eventSwitchLocation)="eventSwitchLocation($event)"
+    (initMarkList)="(initMarkList($event))"
+    (clickOnImage)="clickOnImage($event)"></image-map>
+  </div> 
+</div>

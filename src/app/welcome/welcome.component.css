@@ -1,0 +1,108 @@
+:host {
+  display: block;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  margin-bottom: 0;
+  margin-top: 0.83em;
+}
+
+.welcome-page {
+  background-image: url('../../assets/img/person.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-color: #62AFCD;
+	padding: 20px 30px;
+}
+
+.welcome-page img {
+  display: inline-block;
+}
+
+.welcome-page .welcome-logo {
+	height: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-page .main-wrapper {
+	height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: initial;
+}
+
+.welcome-page .main-wrapper .desc-wrapper {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-page .main-wrapper .play-wrapper {
+	display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  height: 70%;
+}
+
+.welcome-page .main-wrapper .play-img {
+}
+
+.welcome-page .main-wrapper .play-wrapper .img-wrapper {
+	margin: 20px 0;
+  max-width: 100%;
+  height: 80%;
+}
+
+.welcome-page .main-wrapper .play-wrapper .img-wrapper img {
+  max-height: 100%;
+}
+
+.welcome-page .main-wrapper .play-wrapper .content-wrapper {
+	text-transform: uppercase;
+  color: #fff;
+  height: 20%;
+}
+
+.welcome-page .main-wrapper .blue-btn-wrapper {
+  height: 40px;
+}
+
+.welcome-page .main-wrapper .blue-btn-wrapper button {
+	font-size: 20px;
+  display: block;
+}
+
+.welcome-page .main-wrapper .welcome-content {
+	color: #fff;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  height: calc( 100% - 40px );
+}
+
+.welcome-page .main-wrapper .play-wrapper  .content-wrapper {
+  font-size: 12px;
+}
+
+@media (max-width: 500px) {
+	.welcome-page .main-wrapper {
+		background-size: 82%;
+	}
+}

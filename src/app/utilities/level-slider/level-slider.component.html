@@ -1,0 +1,5 @@
+<div class="damage-level-wrapper" #damageLevelScreen>
+	<div class="barChart" *ngFor="let value of values; let i = index;" [ngStyle]="{'background-image': gradients[i]}" [ngClass]="{active: value ===selectValue}" (click)="selectChart(value)">
+		<div class="text">{{value}}</div>
+	</div>
+</div>

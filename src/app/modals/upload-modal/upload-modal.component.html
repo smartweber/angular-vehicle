@@ -1,0 +1,42 @@
+<div class="text-center upload-modal-area modal-wrapper flex-wrapper">
+  <div class="close" (click)="onCancel()" *ngIf="strCurrentStatus === arrStrStatuses[0]">
+    <i class="fa fa-times-circle" aria-hidden="true"></i>
+  </div>
+
+  <div class="modal-header" *ngIf="strCurrentStatus === arrStrStatuses[0]">
+    {{strTitle}}
+  </div>
+
+  <div class="modal-body">
+    <div class="description" *ngIf="strCurrentStatus === arrStrStatuses[0]">
+      {{strDescription}}
+    </div>
+
+    <div class="img-wrapper">
+      <img [src]="strImgURL" *ngIf="strCurrentStatus === arrStrStatuses[0]">
+      <div class="progress" *ngIf="strCurrentStatus === arrStrStatuses[1]">
+        <div class="progress-bar" role="progressbar" #fileProgress></div>
+      </div>
+      <div class="done-icon" *ngIf="strCurrentStatus === arrStrStatuses[2]">
+        <i class="fa fa-check-circle success" aria-hidden="true" *ngIf="bIsSuccessResult"></i>
+        <i class="fa fa-times-circle error" aria-hidden="true" *ngIf="!bIsSuccessResult"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-action-area pointer">
+    <div class="action-btn upload-action-wrapper" *ngIf="strCurrentStatus === arrStrStatuses[0]" (click)="fileUpload.click()">
+      <img src="assets/img/upload.png" class="upload-icon">
+      <input type="file" ng2FileSelect [uploader]="uploader" id="upload_damage_photo" #fileUpload multiple accept="image/jpeg, image/png" />
+      <div class="upload-title">Upload</div>
+    </div>
+
+    <div class="waiting-btn upload-action-wrapper" *ngIf="strCurrentStatus === arrStrStatuses[1]">
+      Uploading ...
+    </div>
+
+    <div class="done-btn pointer upload-action-wrapper" *ngIf="strCurrentStatus === arrStrStatuses[2]" (click)="onCancel()" [ngClass]="{'warning-btn': !bIsSuccessResult}">
+      {{strEndBtnString}}
+    </div>
+  </div>
+</div>

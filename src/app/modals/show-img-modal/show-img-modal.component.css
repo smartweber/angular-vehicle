@@ -1,0 +1,44 @@
+.show-img-modal-area {
+	position: relative;
+	min-height: 100px;
+}
+
+.show-img-modal-area .close {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.show-img-modal-area .close i {
+	font-size: 25px;
+}
+
+.show-img-modal-area .modal-action-area .upload-icon {
+	width: 30px;
+}
+
+.show-img-modal-area .modal-action-area .upload-title {
+	margin-left: 5px;
+}
+
+.show-img-modal-area .modal-body .progress {
+	background: #aaa;
+    height: 5px;
+    margin: 30px 20px;
+}
+
+.show-img-modal-area .done-icon {
+	margin: 20px 0;
+}
+
+.show-img-modal-area .done-icon i {
+	font-size: 50px;
+}
+
+.show-img-modal-area .done-icon i.success {
+	color: #007aff;
+}
+
+.show-img-modal-area .done-icon i.error {
+	color: #ff0000;
+}

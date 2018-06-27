@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  padding: 0 16px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  margin-bottom: 0;
+  margin-top: 0.83em;
+}
+
+.vehicle-table tr th,
+.vehicle-table tr td {
+	border-top: none;
+}
+
+.vehicle-table tr td {
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+}
+
+.vehicle-table i.fa {
+  color: #ccc;
+}
+
+.vehicle-table tr th {
+	color: #007aff;
+}
+
+.vehicle-table .vehicle-title {
+	display: inline-block;
+	border-bottom: 1px dashed #007aff;
+}
+
+.vehicle-area .vehicle-header {
+  height: 35%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.vehicle-area .vehicle-body {
+  height: 65%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  font-size: 14px;
+  padding: 0 30px;
+}
+
+.blue-btn-wrapper {
+  margin: 0;
+}
